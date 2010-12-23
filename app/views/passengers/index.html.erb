@@ -1,0 +1,14 @@
+<h1>Passengers</h1>
+<% if @passengers.empty? %>
+<p>No passengers on file.</p>
+<% else -%>
+<ul>
+	<% @passengers.each do |passenger| %>
+	<li><%= passenger.latitude %>, <%= passenger.longitude %> (<%= passenger.path.waypoints.size %> waypoints)
+		<%= link_to 'delete', passenger, :method => :delete %>
+		<%= link_to 'edit waypoints', passenger_path_path(passenger) %>
+	</li>
+	<% end -%>
+</ul>
+<% end -%>
+<p><%= link_to 'Add Passenger', new_passenger_path %></p>

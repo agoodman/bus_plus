@@ -1,0 +1,11 @@
+<h1>Passengers::Path</h1>
+<% if @path.waypoints.empty? %>
+<p>There are no waypoints in this path.</p>
+<% else -%>
+<ul>
+	<% @path.waypoints.each do |waypoint| %>
+	<li><%= waypoint.latitude %>, <%= waypoint.longitude %> @ <%= waypoint.arrival_time.to_s(:long) %></li>
+	<% end -%>
+</ul>
+<% end -%>
+<p><%= link_to 'Add Waypoint', new_passenger_path_waypoint_path(@passenger) %></p>

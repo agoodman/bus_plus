@@ -1,0 +1,14 @@
+<h1>New Passenger</h1>
+<% form_for @passenger do |f| %>
+<p>
+	<%= f.label :latitude %>
+	<%= f.text_field :latitude %>
+</p>
+<p>
+	<%= f.label :longitude %>
+	<%= f.text_field :longitude %>
+</p>
+<p>
+	<%= f.submit 'CREATE PASSENGER' %>
+</p>
+<% end -%>
