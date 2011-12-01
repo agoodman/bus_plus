@@ -5,6 +5,8 @@ BusPlus::Application.routes.draw do
   resources :passengers do
     resources :path_elements, :controller => 'passengers/path_elements', :only => [ :index, :new, :create, :show, :destroy]
   end
+
+  root to: "home#index"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

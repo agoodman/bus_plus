@@ -1,0 +1,63 @@
+#system
+	%ul
+		%li= link_to 'Authentication', '#authentication'
+		%li= link_to 'Endpoints', '#endpoints'
+		%li= link_to 'Workers', '#workers'
+	#authentication
+		#session
+			%h3 Session (C..D)
+			%ul
+				%li 
+					%span POST /sessions
+					%p.request {"session":{"email":"your_email","password":"your_password"}}
+					%p.response {"session":{"api_token":"abc123"}}
+				%li 
+					%span DELETE /session
+					%p.response HTTP 200 OK
+		#token
+			%h3 Token (HTTPS Basic Auth)
+			%p Once you have a token, you can access any endpoint by submitting the token as the HTTPS basic authentication username. The password is ignored.
+	#endpoints
+		#passengers
+			%h3 Passengers (C.UD)
+			%ul
+				%li 
+					%span POST /passengers
+					%p.request {"passenger":{"latitude":26.0,"longitude":-82.0}}
+					%p.response {"passenger":{"id":123,"latitude":26.0,"longitude":-82.0}}
+				%li 
+					%span PUT /passengers/:id
+					%p.request {"passenger":{"latitude":26.5,"longitude":-82.5}}
+					%p.response HTTP 200 OK
+				%li 
+					%span DELETE /passengers/:id
+					%p.response HTTP 200 OK
+		#destinations
+			%h3 Destinations (C..D)
+			%ul
+				%li 
+					%span POST /passengers/:passenger_id/destinations
+					%p.request {"destination":{"latitude":25.6,"longitude":-82.3}}
+					%p.response HTTP 200 OK
+				%li 
+					%span DELETE /passengers/:passenger_id/destinations/:id
+					%p.response HTTP 200 OK
+		#vehicles
+			%h3 Vehicles (CRUD)
+			%ul
+				%li 
+					%span POST /vehicles
+					%p.request {"vehicle":{"driver_id":123,"latitude":23.8,"longitude":-81.7}}
+					%p.response {"vehicle":{"id":456,"driver_id":123,"latitude":23.8,"longitude":-81.7}}
+				%li 
+					%span GET /vehicles
+					%p.response [{"vehicle":{"id":456,"driver_id":123,"latitude":23.8,"longitude":-81.7}}]
+				%li 
+					%span PUT /vehicles/:id 
+					%p.request {"vehicle":{"latitude":23.9,"longitude":-81.4}}
+					%p.response HTTP 200 OK
+				%li 
+					%span DELETE /vehicles/:id
+					%p.response HTTP 200 OK
+		%hr
+	#workers

@@ -1,0 +1,32 @@
+* { margin: 0; padding: 0; }
+body { margin: 0 auto; background: #fff; color: #026890; font-size: 16pt; font-family: Heiti SC; }
+ul { list-style: none; }
+a { text-decoration: none; color: #fef; }
+hr { clear: both; visibility: hidden; border: none; height: 0; }
+h1 { font-size: 24pt; }
+
+#header,
+#main,
+#footer { width: 960px; margin: 0 auto; }
+
+#header { font-size: 36pt; margin-top: 50px; }
+#footer { font-size: 12pt; margin-top: 25px; }
+
+/*#passengers,
+#destinations,
+#vehicles { float: left; width: 33%; }
+*/
+#system > div { overflow: auto; height: 400px; }
+#system > div li { padding: 20px 0 0 25px; }
+#system > div > div { margin-top: 20px; }
+
+/*#passengers li:first-child,
+#vehicles li:first-child { padding-left: 0; }
+*/
+
+p.request,
+p.response { padding: 10px; clear: both; margin-top: 5px; }
+p.request { border: 1px solid #444; }
+p.request:before { content: 'REQUEST '; font-size: 8pt; }
+p.response { border: 1px solid #888; }
+p.response:before { content: 'RESPONSE '; font-size: 8pt; }

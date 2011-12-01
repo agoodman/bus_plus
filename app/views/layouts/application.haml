@@ -1,13 +1,17 @@
 !!!
 %html
-  %head
-    %title BusPlus
-    = stylesheet_link_tag :all
-    = javascript_include_tag :defaults
-    = csrf_meta_tag
-  %body
-    #header
-      = link_to 'Vehicles', vehicles_path
-      \-
-      \#{link_to 'Passengers', passengers_path}
-    = yield
+	%head
+		%title 
+			BusPlus
+			= "- #{yield(:title)}" unless yield(:title).blank?
+		= stylesheet_link_tag :all
+		%link{:rel=>"stylesheet", :href=>"http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/start/jquery-ui.css", :type=>"text/css", :media=>"all"}
+		= javascript_include_tag :defaults
+		= csrf_meta_tag
+	%body
+		#header
+			BUS+ API
+		#main
+			= yield
+		#footer
+			Copyright © 2011 Migrant Studios LLC. All Rights Reserved.
