@@ -1,0 +1,25 @@
+%h1 New Path Element
+= form_for [@passenger,@path_element] do |f|
+  = @path_element.errors.full_messages
+  = f.hidden_field :passenger_id, :value => @passenger.id
+  %h2 Start
+  %p
+    = f.label :start_latitude, 'Latitude'
+    = f.text_field :start_latitude
+  %p
+    = f.label :start_longitude, 'Longitude'
+    = f.text_field :start_longitude
+  %p
+    = f.label :start_time, 'Time'
+    = f.text_field :start_time
+  %h2 End
+  %p
+    = f.label :end_latitude, 'Latitude'
+    = f.text_field :end_latitude
+  %p
+    = f.label :end_longitude, 'Longitude'
+    = f.text_field :end_longitude
+  %p
+    = f.label :end_time, 'Time'
+    = f.text_field :end_time
+  = f.submit 'NEXT'

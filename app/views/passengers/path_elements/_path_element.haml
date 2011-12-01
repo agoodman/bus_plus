@@ -1,0 +1,5 @@
+%li
+  Starting from #{path_element.start_latitude}, #{path_element.start_longitude} at #{path_element.start_time.to_s(:short)}
+  %br/
+  Ending at  from #{path_element.end_latitude}, #{path_element.end_longitude} at #{path_element.end_time.to_s(:short)}
+  \#{link_to 'delete', [@passenger,path_element], :method => :delete}
