@@ -1,0 +1,11 @@
+%h1 Vehicles
+- if @vehicles.empty?
+  %p No vehicles on file.
+- else
+  %ul
+    - @vehicles.each do |vehicle|
+      %li
+        = vehicle.latitude
+        , #{vehicle.longitude} (#{vehicle.seats_available})
+        \#{link_to 'delete', vehicle, :method => :delete}
+%p= link_to 'Add Vehicle', new_vehicle_path
