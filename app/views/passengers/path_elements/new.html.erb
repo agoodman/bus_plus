@@ -1,5 +1,5 @@
 <h1>New Path Element</h1>
-<% form_for [@passenger,@path_element] do |f| %>
+<%= form_for [@passenger,@path_element] do |f| %>
 <%= @path_element.errors.full_messages %>
 <%= f.hidden_field :passenger_id, :value => @passenger.id %>
 <h2>Start</h2>

@@ -31,7 +31,7 @@ class Passengers::PathElementsControllerTest < ActionController::TestCase
       post :create, :passenger_id => @passenger.id, :path_element => { :passenger_id => @passenger.id, :start_latitude => 0.0, :start_longitude => 0.0, :start_time => Time.now, :end_latitude => 1.0, :end_longitude => 1.0, :end_time => Time.now + 30.minutes }
     end
     
-    should ('redirect to show'){redirect_to passenger_path_element_path(@passenger)}
+    should ('redirect to show'){redirect_to passenger_path_element_path(@passenger,assigns(:path_element))}
   end
   
   context "on get show" do
