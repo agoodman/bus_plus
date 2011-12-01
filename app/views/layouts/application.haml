@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %title BusPlus
+    = stylesheet_link_tag :all
+    = javascript_include_tag :defaults
+    = csrf_meta_tag
+  %body
+    #header
+      = link_to 'Vehicles', vehicles_path
+      \-
+      \#{link_to 'Passengers', passengers_path}
+    = yield

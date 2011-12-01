@@ -1,0 +1,12 @@
+%h1 Passengers
+- if @passengers.empty?
+  %p No passengers on file.
+- else
+  %ul
+    - @passengers.each do |passenger|
+      %li
+        = passenger.latitude
+        , #{passenger.longitude}
+        \#{link_to 'delete', passenger, :method => :delete}
+        \#{link_to 'edit path elements', passenger_path_elements_path(passenger)}
+%p= link_to 'Add Passenger', new_passenger_path
