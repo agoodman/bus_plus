@@ -1,8 +1,10 @@
 class Vehicle < ActiveRecord::Base
 
   belongs_to :driver
-  has_one :path
-  has_many :occupants
-  has_many :passengers, :through => :occupants
+  has_one :manifest
+  has_many :passengers, :through => :manifest
+  has_many :waypoints, :through => :manifest
+  
+  validates_presence_of :latitude, :longitude
 
 end

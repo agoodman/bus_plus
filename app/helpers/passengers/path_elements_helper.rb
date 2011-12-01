@@ -1,0 +1,2 @@
+module Passengers::PathElementsHelper
+end

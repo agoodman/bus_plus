@@ -3,11 +3,8 @@ BusPlus::Application.routes.draw do
   resources :drivers
   resources :vehicles
   resources :passengers do
-    resource :path, :controller => 'passengers/paths', :only => :show do
-      resources :waypoints, :controller => 'passengers/paths/waypoints', :only => [ :new, :create, :update, :destroy ]
-    end
+    resources :path_elements, :controller => 'passengers/path_elements', :only => [ :index, :new, :create, :show, :destroy]
   end
-  resources :waypoints
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

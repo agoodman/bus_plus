@@ -1,8 +1,8 @@
 require 'test_helper'
+require 'shoulda'
 
 class PassengerTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
+
+  should have_many :path_elements
+  
 end

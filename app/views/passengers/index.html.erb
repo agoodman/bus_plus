@@ -4,9 +4,9 @@
 <% else -%>
 <ul>
 	<% @passengers.each do |passenger| %>
-	<li><%= passenger.latitude %>, <%= passenger.longitude %> (<%= passenger.path.waypoints.size %> waypoints)
+	<li><%= passenger.latitude %>, <%= passenger.longitude %>
 		<%= link_to 'delete', passenger, :method => :delete %>
-		<%= link_to 'edit waypoints', passenger_path_path(passenger) %>
+		<%= link_to 'edit path elements', passenger_path_elements_path(passenger) %>
 	</li>
 	<% end -%>
 </ul>

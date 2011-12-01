@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101223031542) do
+ActiveRecord::Schema.define(:version => 20101224022339) do
 
   create_table "drivers", :force => true do |t|
     t.string   "first_name"
@@ -18,6 +18,17 @@ ActiveRecord::Schema.define(:version => 20101223031542) do
     t.string   "license_number"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "manifests", :force => true do |t|
+    t.integer  "vehicle_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "manifests_path_elements", :id => false, :force => true do |t|
+    t.integer "manifest_id"
+    t.integer "path_element_id"
   end
 
   create_table "passengers", :force => true do |t|
@@ -28,18 +39,15 @@ ActiveRecord::Schema.define(:version => 20101223031542) do
   end
 
   create_table "path_elements", :force => true do |t|
-    t.integer  "path_id"
-    t.integer  "waypoint_id"
-    t.integer  "index"
-    t.integer  "path_size"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "paths", :force => true do |t|
     t.integer  "passenger_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.float    "start_latitude"
+    t.float    "start_longitude"
+    t.datetime "start_time"
+    t.float    "end_latitude"
+    t.float    "end_longitude"
+    t.datetime "end_time"
   end
 
   create_table "vehicles", :force => true do |t|
@@ -57,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20101223031542) do
     t.datetime "arrival_time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "manifest_id"
   end
 
 end

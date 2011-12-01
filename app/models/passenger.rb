@@ -1,11 +1,5 @@
 class Passenger < ActiveRecord::Base
 
-  has_one :path
-  
-  after_create :init_path
+  has_many :path_elements
 
-  def init_path
-    self.build_path
-  end
-  
 end

@@ -1,8 +1,8 @@
 require 'test_helper'
+require 'shoulda'
 
 class DriverTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
+
+  should have_one :vehicle
+  
 end
