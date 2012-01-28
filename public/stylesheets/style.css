@@ -1,10 +1,12 @@
 * { margin: 0; padding: 0; }
 html { height: 100%; }
-body { height: 100%; background: #fff; color: #026890; font-size: 16pt; font-family: Heiti SC; }
+body { height: 100%; background: #fff; color: #026890; font-size: 16pt; font-family: Heiti SC; min-height: 320px; min-width: 320px; }
 ul { list-style: none; }
 a { text-decoration: none; color: #a6e; }
 hr { clear: both; visibility: hidden; border: none; height: 0; }
 h1 { font-size: 24pt; }
+h2 { margin-top: 10px; }
+h3 { margin-top: 5px; }
 
 /*header { float: left; }*/
 
@@ -23,17 +25,13 @@ nav { zoom: 1; margin-top: 25px; }
 /*nav a { color: blue; }*/
 nav li { float: left; }
 
-/*#passengers,
-#destinations,
-#vehicles { float: left; width: 33%; }
-*/
+#main { font-family: Helvetica Neue; }
+ul.use-cases { list-style: disc; margin-left: 20px; }
+ul.use-cases li { margin-top: 10px; }
+
 #system > div { overflow: auto; height: 400px; }
 #system > div li { padding: 20px 0 0 25px; }
 #system > div > div { margin-top: 20px; }
-
-/*#passengers li:first-child,
-#vehicles li:first-child { padding-left: 0; }
-*/
 
 p.request,
 p.response { padding: 10px; clear: both; margin-top: 5px; }
@@ -59,7 +57,7 @@ p.response:before { content: 'RESPONSE '; font-size: 8pt; }
 /* landscape */
 @media screen and (min-aspect-ratio: 4/3) {
 	
-	header { height: 100%; float: left; margin-right: 20px; border-right: 1px solid #888; }
+	header { height: 100%; float: left; margin-right: 20px; border-right: 1px solid #888; position: fixed; top: 0; left: 0; bottom: 0; }
 	header ul li { clear: both; display: block; }
 	header p#logo { /*background: url('/images/icon@2x.png') no-repeat;*/ text-align: right; max-width: 140px; margin-top: 20px; }
 /*	header p { float: right; max-width: 118px; }*/
@@ -70,8 +68,8 @@ p.response:before { content: 'RESPONSE '; font-size: 8pt; }
 	header nav li.empty { height: 2px; background: #026890; }
 	header nav li a { display: block; line-height: 1.5em; }
 	header nav li a:hover { color: #026890; border-color: #888; background: #eee; }
-	#main { margin: 0 20px; padding: 20px 0; }
-
+	#main { margin: 0 20px 0 200px; padding: 20px 0; }
+	footer { margin: 20px 0 0 200px; }
 }
 
 /* landscape SD */

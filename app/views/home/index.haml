@@ -1,48 +1,61 @@
 %h1 API Documentation
 %p Bus Plus is a framework for managing vehicles and passengers for local and regional transportation.
-%p Drivers provide on-demand transportation service to passengers using an automated dispatch system.
-%p Here, you will find detailed explanations of how to use the Bus Plus API
-%label
-	Base URL
-	%strong.url http://buspl.us/api
+%h2 Use Cases
+%ul.use-cases
+	%li 
+		%strong= link_to 'Drivers', drivers_path
+		provide on-demand transportation service to 
+		%strong= link_to 'passengers', passengers_path
+		using an automated dispatch system.
+	%li
+		%strong= link_to 'Passengers', passengers_path
+		make point-to-point transport requests, called
+		%strong= link_to 'segments', segments_path
+		using a kiosk or mobile device.
+	%li
+		%strong Automated workers
+		sort requests and match each to a
+		%strong= link_to 'vehicle', vehicles_path
+		using a matching algorithm.
+		= link_to 'Learn More', match_path
 
-/ #system
-/ 	%ul
-/ 		%li= link_to 'Authentication', '#authentication'
-/ 		%li= link_to 'Endpoints', '#endpoints'
-/ 		%li= link_to 'Workers', '#workers'
-/ 	#authentication
-/ 		#user
-/ 			%h3 User (CRUD)
-/ 			%ul
-/ 				%li
-/ 					%span POST /users
-/ 					%p.request {"user":{"first_name":"Test", "last_name":"User", "email":"test@buspl.us", "password":"abc123"}}
-/ 					%p.response {"user":{"id":123456, "api_token":"456def", ...}}
-/ 				%li
-/ 					%span GET /users/:id
-/ 					%p.response {"user":{"id":123456, "api_token":"456def", ...}}
-/ 				%li
-/ 					%span PUT /users
-/ 					%p.request {"user":{"first_name":"Test", "last_name":"User"}}
-/ 					%p.response HTTP 200 OK
-/ 				%li
-/ 					%span DELETE /users/:id
-/ 					%p.response HTTP 200 OK
-/ 					
-/ 		#session
-/ 			%h3 Session (C..D)
-/ 			%ul
-/ 				%li 
-/ 					%span POST /sessions
-/ 					%p.request {"session":{"email":"your_email", "password":"your_password"}}
-/ 					%p.response {"session":{"api_token":"abc123"}}
-/ 				%li 
-/ 					%span DELETE /session
-/ 					%p.response HTTP 200 OK
-/ 		#token
-/ 			%h3 Token (HTTPS Basic Auth)
-/ 			%p Once you have a token, you can access any endpoint by submitting the token as the HTTPS basic authentication username. The password is ignored.
+%h2 
+	Base URL: 
+	%i http://buspl.us/api
+
+/ #authentication
+/ 	#user
+/ 		%h3 User (CRUD)
+/ 		%ul
+/ 			%li
+/ 				%span POST /users
+/ 				%p.request {"user":{"first_name":"Test", "last_name":"User", "email":"test@buspl.us", "password":"abc123"}}
+/ 				%p.response {"user":{"id":123456, "api_token":"456def", ...}}
+/ 			%li
+/ 				%span GET /users/:id
+/ 				%p.response {"user":{"id":123456, "api_token":"456def", ...}}
+/ 			%li
+/ 				%span PUT /users
+/ 				%p.request {"user":{"first_name":"Test", "last_name":"User"}}
+/ 				%p.response HTTP 200 OK
+/ 			%li
+/ 				%span DELETE /users/:id
+/ 				%p.response HTTP 200 OK
+/ 				
+/ 	#session
+/ 		%h3 Session (C..D)
+/ 		%ul
+/ 			%li 
+/ 				%span POST /sessions
+/ 				%p.request {"session":{"email":"your_email", "password":"your_password"}}
+/ 				%p.response {"session":{"api_token":"abc123"}}
+/ 			%li 
+/ 				%span DELETE /session
+/ 				%p.response HTTP 200 OK
+/ 	#token
+/ 		%h3 Token (HTTPS Basic Auth)
+/ 		%p Once you have a token, you can access any endpoint by submitting the token as the HTTPS basic authentication username. The password is ignored.
+
 / 	#endpoints
 / 		#passengers
 / 			%h3 Passengers (C.UD)

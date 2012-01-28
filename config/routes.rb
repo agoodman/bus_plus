@@ -13,6 +13,7 @@ BusPlus::Application.routes.draw do
     end
   end
 
+  match "/match" => "home#match", via: :get
   root to: "home#index"
   
 end
