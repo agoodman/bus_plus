@@ -1,8 +1,0 @@
-%h1
-  Passenger #{@passenger.id} Path Elements
-- if @path_elements.empty?
-  %p No path elements
-- else
-  %ul
-    = render @path_elements
-%p= link_to 'Add Path Element', new_passenger_path_element_path(@passenger)

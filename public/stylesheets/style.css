@@ -1,16 +1,27 @@
 * { margin: 0; padding: 0; }
-body { margin: 0 auto; background: #fff; color: #026890; font-size: 16pt; font-family: Heiti SC; }
+html { height: 100%; }
+body { height: 100%; background: #fff; color: #026890; font-size: 16pt; font-family: Heiti SC; }
 ul { list-style: none; }
-a { text-decoration: none; color: #fef; }
+a { text-decoration: none; color: #a6e; }
 hr { clear: both; visibility: hidden; border: none; height: 0; }
 h1 { font-size: 24pt; }
 
-#header,
-#main,
-#footer { width: 960px; margin: 0 auto; }
+/*header { float: left; }*/
 
-#header { font-size: 36pt; margin-top: 50px; }
-#footer { font-size: 12pt; margin-top: 25px; }
+header,
+footer { margin: 0 auto; }
+
+footer { font-size: 12pt; margin-top: 25px; }
+
+header p#logo { max-width: 110px; font-size: 32pt; }
+header p#tagline { font-size: 14pt; text-align: center; }
+header nav { margin: 20px; }
+
+/*nav:before,*/ nav:after { content: ""; display: table; }
+nav:after { clear: both; }
+nav { zoom: 1; margin-top: 25px; }
+/*nav a { color: blue; }*/
+nav li { float: left; }
 
 /*#passengers,
 #destinations,
@@ -30,3 +41,78 @@ p.request { border: 1px solid #444; }
 p.request:before { content: 'REQUEST '; font-size: 8pt; }
 p.response { border: 1px solid #888; }
 p.response:before { content: 'RESPONSE '; font-size: 8pt; }
+
+/* width font scaling */
+@media screen and (max-width: 360px) { body { font-size: 10pt; } nav { font-size: 10pt; } }
+@media screen and (max-aspect-ratio: 4/3) and (max-width: 360px) { #menu li { margin-left: 15px; } }
+@media screen and (min-width: 361px) and (max-width: 480px) { body { font-size: 11pt; } nav { font-size: 12pt; } }
+@media screen and (max-aspect-ratio: 4/3) and (min-width: 361px) and (max-width: 480px) { #menu li { margin-left: 20px; } }
+@media screen and (min-width: 481px) and (max-width: 640px) { body { font-size: 12pt; } nav { font-size: 14pt; } }
+@media screen and (max-aspect-ratio: 4/3) and (min-width: 481px) and (max-width: 640px) { #menu li { margin-left: 25px; } }
+@media screen and (min-width: 641px) and (max-width: 960px) { body { font-size: 15pt; } }
+@media screen and (max-aspect-ratio: 4/3) and (min-width: 641px) and (max-width: 960px) { #menu li { margin-left: 45px; } }
+@media screen and (min-width: 961px) and (max-width: 1200px) { body { font-size: 18pt; } }
+@media screen and (max-aspect-ratio: 4/3) and (min-width: 961px) and (max-width: 1200px) { #menu li { margin-left: 75px; } }
+@media screen and (min-width: 1201px) { body { font-size: 21pt; } }
+@media screen and (max-aspect-ratio: 4/3) and (min-width: 1201px) { #menu li { margin-left: 95px; } } 
+
+/* landscape */
+@media screen and (min-aspect-ratio: 4/3) {
+	
+	header { height: 100%; float: left; margin-right: 20px; border-right: 1px solid #888; }
+	header ul li { clear: both; display: block; }
+	header p#logo { /*background: url('/images/icon@2x.png') no-repeat;*/ text-align: right; max-width: 140px; margin-top: 20px; }
+/*	header p { float: right; max-width: 118px; }*/
+	header nav li { min-width: 140px; }
+	header nav li a { border-style: solid; border-width: 0 0 1px 0; border-color: #026890; padding: 5px; }
+	header nav li.current a,
+	header nav li.current a:hover { border-color: #026890; background: #026890; color: white; }
+	header nav li.empty { height: 2px; background: #026890; }
+	header nav li a { display: block; line-height: 1.5em; }
+	header nav li a:hover { color: #026890; border-color: #888; background: #eee; }
+	#main { margin: 0 20px; padding: 20px 0; }
+
+}
+
+/* landscape SD */
+@media screen and (min-aspect-ratio: 4/3) and (max-aspect-ratio: 16/9) {
+
+}
+	
+/* landscape HD */
+@media screen and (min-aspect-ratio: 16/9) {
+
+}
+
+/* portrait */
+@media screen and (max-aspect-ratio: 4/3) {
+	
+	ul:after,
+	header:after {
+		content: '.';
+		visibility: hidden;
+		clear: both;
+	}
+
+	header,
+	footer {
+		min-width: 320px;
+/*		max-width: 480px;*/
+	}
+	
+	header { text-align: center; }
+	header p#logo { margin: 20px 0; text-align: right; float: left; }
+	header p#tagline { margin: 35px 0 0 50px; max-width: 150px; float: left; }
+
+	header nav { clear: both; margin: 20px 0; }
+	header nav li a { border-style: solid; border-width: 0 0 1px 0; border-color: #026890; padding: 5px; }
+	header nav li.current a,
+	header nav li.current a:hover { border-color: #026890; background: #026890; color: white; }
+	header nav li.empty { height: 2px; background: #026890; }
+	header nav li a { display: block; line-height: 1.5em; }
+	header nav li a:hover { color: #026890; border-color: #888; background: #eee; }
+
+	#main { margin: 0 20px; padding: 20px 0; }
+
+
+}

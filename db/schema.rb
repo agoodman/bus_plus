@@ -20,17 +20,6 @@ ActiveRecord::Schema.define(:version => 20101224022339) do
     t.datetime "updated_at"
   end
 
-  create_table "manifests", :force => true do |t|
-    t.integer  "vehicle_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "manifests_path_elements", :id => false, :force => true do |t|
-    t.integer "manifest_id"
-    t.integer "path_element_id"
-  end
-
   create_table "passengers", :force => true do |t|
     t.float    "latitude"
     t.float    "longitude"
@@ -38,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20101224022339) do
     t.datetime "updated_at"
   end
 
-  create_table "path_elements", :force => true do |t|
+  create_table "segments", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "passenger_id"
@@ -48,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20101224022339) do
     t.float    "end_latitude"
     t.float    "end_longitude"
     t.datetime "end_time"
+    t.integer  "vehicle_id"
   end
 
   create_table "vehicles", :force => true do |t|
@@ -57,15 +47,6 @@ ActiveRecord::Schema.define(:version => 20101224022339) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "driver_id"
-  end
-
-  create_table "waypoints", :force => true do |t|
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "arrival_time"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "manifest_id"
   end
 
 end

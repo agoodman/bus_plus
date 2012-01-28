@@ -1,17 +1,29 @@
-!!!
+!!! 5
 %html
 	%head
 		%title 
 			BusPlus
 			= "- #{yield(:title)}" unless yield(:title).blank?
 		= stylesheet_link_tag :all
-		%link{:rel=>"stylesheet", :href=>"http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/start/jquery-ui.css", :type=>"text/css", :media=>"all"}
+		%link{:rel => "stylesheet", :href => "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/trontastic/jquery-ui.css", :type => "text/css"}
 		= javascript_include_tag :defaults
 		= csrf_meta_tag
 	%body
-		#header
-			BUS+ API
-		#main
-			= yield
-		#footer
-			Copyright © 2011 Migrant Studios LLC. All Rights Reserved.
+		%header
+			%p#logo BUS PLUS
+			%p#tagline 
+				Scalable
+				%br
+				On-Demand
+				%br
+				Transportation
+			%nav
+				%ul
+					%li{class: (controller.controller_name=='home' ? 'current' : '')}= link_to 'overview', root_path
+					%li{class: (controller.controller_name=='drivers' ? 'current' : '')}= link_to 'drivers', drivers_path
+					%li{class: (controller.controller_name=='vehicles' ? 'current' : '')}= link_to 'vehicles', vehicles_path
+					%li{class: (controller.controller_name=='segments' ? 'current' : '')}= link_to 'segments', segments_path
+					%li{class: (controller.controller_name=='passengers' ? 'current' : '')}= link_to 'passengers', passengers_path
+		#main= yield
+		%footer
+			Copyright © 2012 Migrant Studios LLC. All Rights Reserved.

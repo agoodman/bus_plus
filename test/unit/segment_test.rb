@@ -1,9 +1,8 @@
 require 'test_helper'
-require 'shoulda'
 
-class PathElementTest < ActiveSupport::TestCase
+class SegmentTest < ActiveSupport::TestCase
 
-  should have_and_belong_to_many :manifests
+  should belong_to :vehicle
   should belong_to :passenger
   should validate_presence_of :passenger_id
   should validate_presence_of :start_latitude

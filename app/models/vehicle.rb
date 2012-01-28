@@ -1,10 +1,10 @@
 class Vehicle < ActiveRecord::Base
 
   belongs_to :driver
-  has_one :manifest
-  has_many :passengers, :through => :manifest
-  has_many :waypoints, :through => :manifest
+  has_many :segments
+  has_many :passengers, :through => :segments
   
-  validates_presence_of :latitude, :longitude
+  validates_presence_of :driver_id, :latitude, :longitude
+  validates_numericality_of :latitude, :longitude
 
 end

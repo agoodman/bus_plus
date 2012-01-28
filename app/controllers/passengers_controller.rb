@@ -1,40 +1,35 @@
 class PassengersController < ApplicationController
 
+  respond_to :json, :xml
+  
   def index
-    @passengers = Passenger.all
-  end
-
-  def new
-    @passenger = Passenger.new
   end
 
   def create
     @passenger = Passenger.new(params[:passenger])
     
-    if ! @passenger.save
-      flash[:error] = @passenger.errors.full_messages
+    if @passenger.save
+      respond_with(@passenger, status: :ok)
+    else
+      respond_with({errors: @passenger.errors.full_messages}, status: :unprocessable_entity)
     end
-    redirect_to passengers_path
-  end
-  
-  def edit
-    @passenger = Passenger.find(params[:id])
   end
   
   def update
     @passenger = Passenger.find(params[:id])
     
-    if ! @passenger.update_attributes(params[:passenger])
-      flash[:error] = @passenger.errors.full_messages
+    if @passenger.update_attributes(params[:passenger])
+      respond_with(@passenger, status: :ok)
+    else
+      respond_with({errors: @passenger.errors.full_messages})
     end
-    redirect_to passengers_path
   end
   
   def destroy
     @passenger = Passenger.find(params[:id])
     @passenger.destroy
     
-    redirect_to passengers_path
+    head :ok
   end
 
 end
