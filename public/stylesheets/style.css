@@ -57,7 +57,7 @@ p.response:before { content: 'RESPONSE '; font-size: 8pt; }
 @media screen and (max-aspect-ratio: 4/3) and (min-width: 1201px) { #menu li { margin-left: 95px; } } 
 
 /* landscape */
-@media screen and (min-aspect-ratio: 4/3) {
+@media screen and (min-aspect-ratio: 1/1) {
 	
 	header { height: 100%; float: left; margin-right: 20px; border-right: 1px solid #888; position: fixed; top: 0; left: 0; bottom: 0; }
 	header ul li { clear: both; display: block; }
@@ -85,7 +85,7 @@ p.response:before { content: 'RESPONSE '; font-size: 8pt; }
 }
 
 /* portrait */
-@media screen and (max-aspect-ratio: 4/3) {
+@media screen and (max-aspect-ratio: 1/1) {
 	
 	ul:after,
 	header:after {
