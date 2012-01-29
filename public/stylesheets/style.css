@@ -28,6 +28,8 @@ nav li { float: left; }
 #main { font-family: Helvetica Neue; }
 ul.use-cases { list-style: disc; margin-left: 20px; }
 ul.use-cases li { margin-top: 10px; }
+#main ol { margin-left: 40px; }
+#main ol li { margin-top: 10px; }
 
 #system > div { overflow: auto; height: 400px; }
 #system > div li { padding: 20px 0 0 25px; }
