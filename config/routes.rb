@@ -11,9 +11,10 @@ BusPlus::Application.routes.draw do
     resources :passengers, only: [ :create, :update, :destroy ] do
       resources :segments, only: [ :create, :update, :destroy]
     end
+    match '/:anything' => 'api/base#error', conditions: { anything: /.*/ }
   end
 
   match "/match" => "home#match", via: :get
   root to: "home#index"
-  
+
 end
