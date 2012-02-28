@@ -1,6 +1,16 @@
 %h1 drivers
-%ul
-	%li POST /drivers
-	%li PUT /drivers/1
-	%li DELETE /drivers/1
-
+%ul.api
+	%li 
+		%span POST /drivers
+		%p.request {"driver":{"license_number": "A123-45-678-9"}}
+		%p.response {"driver":{"id":123, "license_number": "A123-45-678-9"}}
+	%li 
+		%span GET /drivers/:id
+		%p.response {"driver":{"id":123, "license_number": "A123-45-678-9"}}
+	%li 
+		%span PUT /drivers/:id
+		%p.response {"driver":{"license_number": "A123-45-678-9"}}
+		%p.response HTTP 200 OK
+	%li
+		%span DELETE /drivers/:id
+		%p.response HTTP 200 OK

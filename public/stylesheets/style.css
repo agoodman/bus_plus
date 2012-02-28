@@ -5,8 +5,8 @@ ul { list-style: none; }
 a { text-decoration: none; color: #a6e; }
 hr { clear: both; visibility: hidden; border: none; height: 0; }
 h1 { font-size: 24pt; }
-h2 { margin-top: 10px; }
-h3 { margin-top: 5px; }
+h2 { margin-top: 10px; font-size: 21pt; }
+h3 { margin-top: 5px; font-size: 14pt; }
 
 /*header { float: left; }*/
 
@@ -34,6 +34,8 @@ ul.use-cases li { margin-top: 10px; }
 #system > div { overflow: auto; height: 400px; }
 #system > div li { padding: 20px 0 0 25px; }
 #system > div > div { margin-top: 20px; }
+
+ul.api li { padding-top: 20px; }
 
 p.request,
 p.response { padding: 10px; clear: both; margin-top: 5px; }

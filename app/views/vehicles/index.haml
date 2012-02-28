@@ -1,5 +1,16 @@
 %h1 vehicles
-%ul
-	%li POST /vehicles
-	%li PUT /vehicles/1
-	%li DELETE /vehicles/1
+%ul.api
+	%li 
+		%span POST /vehicles
+		%p.request {"vehicle":{"latitude":25.9, "longitude":-81.9}}
+		%p.response {"vehicle":{"id":123, "latitude":25.9, "longitude":-81.9}}
+	%li 
+		%span GET /vehicles/:id
+		%p.response {"vehicle":{"id":123, "latitude":25.9, "longitude":-81.9}}
+	%li 
+		%span PUT /vehicles/:id
+		%p.request {"vehicle":{"latitude":25.9, "longitude":-81.9}}
+		%p.response HTTP 200 OK
+	%li
+		%span DELETE /vehicles/:id
+		%p.response HTTP 200 OK

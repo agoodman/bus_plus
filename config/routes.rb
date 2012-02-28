@@ -3,13 +3,13 @@ BusPlus::Application.routes.draw do
   resources :drivers, only: :index
   resources :vehicles, only: :index
   resources :passengers, only: :index
-  resources :segments, only: :index
+  resources :destinations, only: :index
   
   scope '/api' do
-    resources :drivers, only: [ :create, :destroy ]
-    resources :vehicles, only: [ :create, :update, :destroy ]
-    resources :passengers, only: [ :create, :update, :destroy ] do
-      resources :segments, only: [ :create, :update, :destroy]
+    resources :drivers, only: [ :create, :show, :update, :destroy ]
+    resources :vehicles, only: [ :create, :show, :update, :destroy ]
+    resources :passengers, only: [ :create, :show, :update, :destroy ] do
+      resource :destination, only: :create
     end
     match '/:anything' => 'api/base#error', conditions: { anything: /.*/ }
   end

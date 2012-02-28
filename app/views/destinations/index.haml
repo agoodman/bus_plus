@@ -1,0 +1,6 @@
+%h1 destination
+%ul.api
+	%li 
+		%span POST /passengers/1/destination
+		%p.request {"destination":{"latitude":26.01, "longitude":-82.01}}
+		%p.response {"passenger":{"id":123, "latitude":26.0, "longitude":-82.0, "segment": {"start_latitude": 26.0, "start_longitude": -82.0, "end_latitude": 26.01, "end_longitude": -82.01}}}
