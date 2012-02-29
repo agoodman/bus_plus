@@ -14,6 +14,10 @@ class PassengersController < ApplicationController
       respond_with({errors: @passenger.errors.full_messages}, status: :unprocessable_entity)
     end
   end
+
+  def show
+    respond_with(@passenger = Passenger.find(params[:id]), include: :segment)
+  end
   
   def update
     @passenger = Passenger.find(params[:id])

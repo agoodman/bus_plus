@@ -11,8 +11,12 @@ class VehiclesController < ApplicationController
     if @vehicle.save
       respond_with(@vehicle, status: :ok)
     else
-      respond_with({errors: @vehicle.errors.full_messages})
+      respond_with(@vehicle, status: :unprocessable_entity)
     end
+  end
+  
+  def show
+    respond_with(@vehicle = Vehicle.find(params[:id]))
   end
   
   def update
@@ -21,7 +25,7 @@ class VehiclesController < ApplicationController
     if @vehicle.update_attributes(params[:vehicle])
       respond_with(@vehicle, status: :ok)
     else
-      respond_with({errors: @vehicle.errors.full_messages})
+      respond_with(@vehicle, status: :unprocessable_entity)
     end
   end
   

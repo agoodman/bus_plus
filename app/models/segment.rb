@@ -6,4 +6,6 @@ class Segment < ActiveRecord::Base
   validates_presence_of :passenger_id, :start_latitude, :start_longitude, :end_latitude, :end_longitude
   validates_numericality_of :start_latitude, :start_longitude, :end_latitude, :end_longitude
   
+  attr_accessible :start_latitude, :start_longitude, :end_latitude, :end_longitude
+  
 end

@@ -8,11 +8,17 @@ class DestinationsController < ApplicationController
   end
 
   def create
-    @segment = Segment.new(params[:segment])
+    @segment = Segment.new(
+      start_latitude: @passenger.latitude, 
+      start_longitude: @passenger.longitude,
+      end_latitude: params[:destination][:latitude],
+      end_longitude: params[:destination][:longitude]
+    )
     @segment.passenger_id = @passenger.id
     if @passenger.segment.blank?
       if @segment.save
-        respond_with(@passenger, status: :ok, location: passenger_path(@passenger))
+        @passenger.segment = @segment
+        respond_with(@passenger, include: :segment, status: :ok, location: passenger_path(@passenger))
       else
         # errors = @segment.errors.full_messages
         respond_with(@segment, status: :unprocessable_entity)
