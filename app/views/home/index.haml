@@ -1,5 +1,10 @@
 %h1 API Documentation
 %p Bus Plus is a framework for managing vehicles and passengers for local and regional transportation.
+
+%h2 
+	Base URL: 
+	%i http://buspl.us/api
+
 %h2 Use Cases
 %ul.use-cases
 	%li 
@@ -19,9 +24,30 @@
 		using a matching algorithm.
 		= link_to 'Learn More', match_path
 
-%h2 
-	Base URL: 
-	%i http://buspl.us/api
+%h2 Request Life Cycle
+%ol.lifecycle
+	%li 
+		User's mobile device detects its current location and creates a 
+		%strong= link_to 'passenger', passengers_path
+		object to represent their trip.
+	%li
+		The user selects a 
+		%strong= link_to 'destination', destinations_path
+		, which is then added to the passenger request.
+	%li
+		Once a destination is chosen, the 
+		%strong= link_to 'viable vehicles', match_path
+		submit bids for the request.
+	%li
+		The dispatcher chooses a vehicle and 
+		%strong= link_to 'notifies', match_path
+		the vehicle and passenger by push notification.
+	%li
+		Vehicle arrives at passenger's location, passenger boards.
+	%li
+		Vehicle may take on additional passengers or drop off others before arriving at passenger's destination
+	%li
+		Vehicle arrives at passenger's destination, passenger disembarks. User's mobile device detects its current location to confirm successful transport and deletes passenger.
 
 / #authentication
 / 	#user
