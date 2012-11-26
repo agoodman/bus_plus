@@ -5,10 +5,15 @@ Bus Plus is a standard for coordinating and streamlining communication between p
 h1. How It Works
 
 Passengers make travel requests. "I am here. I want to go to the mall."
+
 Requests are matched against available vehicles within reasonable range of serving the request.
+
 Vehicles submit bids for the request (without driver interaction).
+
 A vehicle bid is chosen (not necessarily lowest bidder).
+
 Passenger and driver are notified of vehicle assignment.
+
 When vehicle is about 5mins away, passenger receives a notification.
 
 h1. API Specification
@@ -18,4 +23,4 @@ h2. Endpoints
 drivers
 vehicles
 passengers
-bids
+candidates
