@@ -9,6 +9,8 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'shoulda'
 gem 'haml'
 gem 'jquery-rails'
+gem 'rest-client'
+gem 'delayed_job_active_record'
 
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -14,12 +14,10 @@
 		using an automated dispatch system.
 	%li
 		%strong= link_to 'Passengers', passengers_path
-		make point-to-point transport requests between their current location and a
-		%strong= link_to 'destination', destinations_path
-		using a mobile device.
+		make point-to-point transport requests between pickup (usually their current location) and drop-off using a mobile device.
 	%li
 		%strong Automated workers
-		sort requests and match each to a
+		sort requests and match each passenger to a
 		%strong= link_to 'vehicle', vehicles_path
 		using a matching algorithm.
 		= link_to 'Learn More', match_path
@@ -27,15 +25,11 @@
 %h2 Request Life Cycle
 %ol.lifecycle
 	%li 
-		User's mobile device detects its current location and creates a 
+		User enters trip pickup and drop-off information using their mobile device, creating a
 		%strong= link_to 'passenger', passengers_path
 		object to represent their trip.
 	%li
-		The user selects a 
-		%strong= link_to 'destination', destinations_path
-		, which is then added to the passenger request.
-	%li
-		Once a destination is chosen, the 
+		Once a passenger is created, the 
 		%strong= link_to 'viable vehicles', match_path
 		submit bids for the request.
 	%li
@@ -43,86 +37,91 @@
 		%strong= link_to 'notifies', match_path
 		the vehicle and passenger by push notification.
 	%li
-		Vehicle arrives at passenger's location, passenger boards.
+		Vehicle approaches passenger's location, passenger receives alert.
+	%li
+		Vehicle arrives at passenger's location, passenger receives alert.
+	%li
+		Passenger and vehicle move together away from pickup location, passenger's mobile device detects successful pickup. 
 	%li
 		Vehicle may take on additional passengers or drop off others before arriving at passenger's destination
 	%li
 		Vehicle arrives at passenger's destination, passenger disembarks. User's mobile device detects its current location to confirm successful transport and deletes passenger.
 
-/ #authentication
-/ 	#user
-/ 		%h3 User (CRUD)
-/ 		%ul
-/ 			%li
-/ 				%span POST /users
-/ 				%p.request {"user":{"first_name":"Test", "last_name":"User", "email":"test@buspl.us", "password":"abc123"}}
-/ 				%p.response {"user":{"id":123456, "api_token":"456def", ...}}
-/ 			%li
-/ 				%span GET /users/:id
-/ 				%p.response {"user":{"id":123456, "api_token":"456def", ...}}
-/ 			%li
-/ 				%span PUT /users
-/ 				%p.request {"user":{"first_name":"Test", "last_name":"User"}}
-/ 				%p.response HTTP 200 OK
-/ 			%li
-/ 				%span DELETE /users/:id
-/ 				%p.response HTTP 200 OK
-/ 				
-/ 	#session
-/ 		%h3 Session (C..D)
-/ 		%ul
-/ 			%li 
-/ 				%span POST /sessions
-/ 				%p.request {"session":{"email":"your_email", "password":"your_password"}}
-/ 				%p.response {"session":{"api_token":"abc123"}}
-/ 			%li 
-/ 				%span DELETE /session
-/ 				%p.response HTTP 200 OK
-/ 	#token
-/ 		%h3 Token (HTTPS Basic Auth)
-/ 		%p Once you have a token, you can access any endpoint by submitting the token as the HTTPS basic authentication username. The password is ignored.
+- if false
+	#authentication
+		#user
+			%h3 User (CRUD)
+			%ul
+				%li
+					%span POST /users
+					%p.request {"user":{"first_name":"Test", "last_name":"User", "email":"test@buspl.us", "password":"abc123"}}
+					%p.response {"user":{"id":123456, "api_token":"456def", ...}}
+				%li
+					%span GET /users/:id
+					%p.response {"user":{"id":123456, "api_token":"456def", ...}}
+				%li
+					%span PUT /users
+					%p.request {"user":{"first_name":"Test", "last_name":"User"}}
+					%p.response HTTP 200 OK
+				%li
+					%span DELETE /users/:id
+					%p.response HTTP 200 OK
+				
+		#session
+			%h3 Session (C..D)
+			%ul
+				%li 
+					%span POST /sessions
+					%p.request {"session":{"email":"your_email", "password":"your_password"}}
+					%p.response {"session":{"api_token":"abc123"}}
+				%li 
+					%span DELETE /session
+					%p.response HTTP 200 OK
+		#token
+			%h3 Token (HTTPS Basic Auth)
+			%p Once you have a token, you can access any endpoint by submitting the token as the HTTPS basic authentication username. The password is ignored.
 
-/ 	#endpoints
-/ 		#passengers
-/ 			%h3 Passengers (C.UD)
-/ 			%ul
-/ 				%li 
-/ 					%span POST /passengers
-/ 					%p.request {"passenger":{"latitude":26.0, "longitude":-82.0}}
-/ 					%p.response {"passenger":{"id":123, "latitude":26.0, "longitude":-82.0}}
-/ 				%li 
-/ 					%span PUT /passengers/:id
-/ 					%p.request {"passenger":{"latitude":26.5, "longitude":-82.5}}
-/ 					%p.response HTTP 200 OK
-/ 				%li 
-/ 					%span DELETE /passengers/:id
-/ 					%p.response HTTP 200 OK
-/ 		#destinations
-/ 			%h3 Destinations (C..D)
-/ 			%ul
-/ 				%li 
-/ 					%span POST /passengers/:passenger_id/destinations
-/ 					%p.request {"destination":{"latitude":25.6, "longitude":-82.3}}
-/ 					%p.response HTTP 200 OK
-/ 				%li 
-/ 					%span DELETE /passengers/:passenger_id/destinations/:id
-/ 					%p.response HTTP 200 OK
-/ 		#vehicles
-/ 			%h3 Vehicles (CRUD)
-/ 			%ul
-/ 				%li 
-/ 					%span POST /vehicles
-/ 					%p.request {"vehicle":{"driver_id":123, "latitude":23.8, "longitude":-81.7}}
-/ 					%p.response {"vehicle":{"id":456, "driver_id":123, "latitude":23.8, "longitude":-81.7}}
-/ 				%li 
-/ 					%span GET /vehicles
-/ 					%p.response [{"vehicle":{"id":456, "driver_id":123, "latitude":23.8, "longitude":-81.7}}]
-/ 				%li 
-/ 					%span PUT /vehicles/:id 
-/ 					%p.request {"vehicle":{"latitude":23.9, "longitude":-81.4}}
-/ 					%p.response HTTP 200 OK
-/ 				%li 
-/ 					%span DELETE /vehicles/:id
-/ 					%p.response HTTP 200 OK
-/ 		%hr
-/ 	#workers
+		#endpoints
+			#passengers
+				%h3 Passengers (C.UD)
+				%ul
+					%li 
+						%span POST /passengers
+						%p.request {"passenger":{"latitude":26.0, "longitude":-82.0}}
+						%p.response {"passenger":{"id":123, "latitude":26.0, "longitude":-82.0}}
+					%li 
+						%span PUT /passengers/:id
+						%p.request {"passenger":{"latitude":26.5, "longitude":-82.5}}
+						%p.response HTTP 200 OK
+					%li 
+						%span DELETE /passengers/:id
+						%p.response HTTP 200 OK
+			#destinations
+				%h3 Destinations (C..D)
+				%ul
+					%li 
+						%span POST /passengers/:passenger_id/destinations
+						%p.request {"destination":{"latitude":25.6, "longitude":-82.3}}
+						%p.response HTTP 200 OK
+					%li 
+						%span DELETE /passengers/:passenger_id/destinations/:id
+						%p.response HTTP 200 OK
+			#vehicles
+				%h3 Vehicles (CRUD)
+				%ul
+					%li 
+						%span POST /vehicles
+						%p.request {"vehicle":{"driver_id":123, "latitude":23.8, "longitude":-81.7}}
+						%p.response {"vehicle":{"id":456, "driver_id":123, "latitude":23.8, "longitude":-81.7}}
+					%li 
+						%span GET /vehicles
+						%p.response [{"vehicle":{"id":456, "driver_id":123, "latitude":23.8, "longitude":-81.7}}]
+					%li 
+						%span PUT /vehicles/:id 
+						%p.request {"vehicle":{"latitude":23.9, "longitude":-81.4}}
+						%p.response HTTP 200 OK
+					%li 
+						%span DELETE /vehicles/:id
+						%p.response HTTP 200 OK
+			%hr
+		#workers

@@ -1,2 +1,0 @@
-class WaypointsController < ApplicationController
-end

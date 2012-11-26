@@ -1,15 +1,19 @@
 %h1 drivers
+%ul.fields
+	%li license_number
+	%li first_name
+	%li last_name
 %ul.api
 	%li 
 		%span POST /drivers
-		%p.request {"driver":{"license_number": "A123-45-678-9"}}
-		%p.response {"driver":{"id":123, "license_number": "A123-45-678-9"}}
+		%p.request {"driver":{"license_number":"A123-45-678-9", "first_name":"Joe", "last_name":"Smith"}}
+		%p.response {"driver":{"id":123, "license_number":"A123-45-678-9", "first_name":"Joe", "last_name":"Smith"}}
 	%li 
 		%span GET /drivers/:id
-		%p.response {"driver":{"id":123, "license_number": "A123-45-678-9"}}
+		%p.response {"driver":{"id":123, "license_number":"A123-45-678-9", "first_name":"Joe", "last_name":"Smith"}}
 	%li 
 		%span PUT /drivers/:id
-		%p.response {"driver":{"license_number": "A123-45-678-9"}}
+		%p.response {"driver":{"license_number":"A123-45-678-9"}}
 		%p.response HTTP 200 OK
 	%li
 		%span DELETE /drivers/:id

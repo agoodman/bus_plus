@@ -1,12 +1,17 @@
 %h1 vehicles
+%ul.fields
+	%li token
+	%li latitude
+	%li longitude
+	%li driver_id
 %ul.api
 	%li 
 		%span POST /vehicles
-		%p.request {"vehicle":{"latitude":25.9, "longitude":-81.9}}
-		%p.response {"vehicle":{"id":123, "latitude":25.9, "longitude":-81.9}}
+		%p.request {"vehicle":{"token":"abc123", "latitude":25.9, "longitude":-81.9}}
+		%p.response {"vehicle":{"id":123, "token":"abc123", "latitude":25.9, "longitude":-81.9}}
 	%li 
 		%span GET /vehicles/:id
-		%p.response {"vehicle":{"id":123, "latitude":25.9, "longitude":-81.9}}
+		%p.response {"vehicle":{"id":123, "token":"abc123", "latitude":25.9, "longitude":-81.9}}
 	%li 
 		%span PUT /vehicles/:id
 		%p.request {"vehicle":{"latitude":25.9, "longitude":-81.9}}

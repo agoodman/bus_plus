@@ -10,7 +10,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101224022339) do
+ActiveRecord::Schema.define(:version => 20121126034651) do
+
+  create_table "candidates", :force => true do |t|
+    t.integer  "vehicle_id"
+    t.integer  "passenger_id"
+    t.float    "bid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "assigned_at"
+  end
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "drivers", :force => true do |t|
     t.string   "first_name"
@@ -21,23 +46,15 @@ ActiveRecord::Schema.define(:version => 20101224022339) do
   end
 
   create_table "passengers", :force => true do |t|
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "segments", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "passenger_id"
     t.float    "start_latitude"
     t.float    "start_longitude"
-    t.datetime "start_time"
     t.float    "end_latitude"
     t.float    "end_longitude"
-    t.datetime "end_time"
     t.integer  "vehicle_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "position"
+    t.datetime "assigned_at"
   end
 
   create_table "vehicles", :force => true do |t|

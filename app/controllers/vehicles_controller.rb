@@ -3,16 +3,17 @@ class VehiclesController < ApplicationController
   respond_to :json, :xml
   
   def index
-    @vehicles = Vehicle.all
+    respond_to do |format|
+      format.html
+      format.json { head :forbidden }
+      format.xml { head :forbidden }
+    end
   end
 
   def create
     @vehicle = Vehicle.new(params[:vehicle])
-    if @vehicle.save
-      respond_with(@vehicle, status: :ok)
-    else
-      respond_with(@vehicle, status: :unprocessable_entity)
-    end
+    @vehicle.save
+    respond_with(@vehicle)
   end
   
   def show
@@ -22,11 +23,8 @@ class VehiclesController < ApplicationController
   def update
     @vehicle = Vehicle.find(params[:id])
     
-    if @vehicle.update_attributes(params[:vehicle])
-      respond_with(@vehicle, status: :ok)
-    else
-      respond_with(@vehicle, status: :unprocessable_entity)
-    end
+    @vehicle.update_attributes(params[:vehicle])
+    respond_with(@vehicle)
   end
   
   def destroy

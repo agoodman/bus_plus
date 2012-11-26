@@ -3,8 +3,17 @@ class DriversController < ApplicationController
   respond_to :json, :xml
   
   def index
+    respond_to do |format|
+      format.html
+      format.json { head :forbidden }
+      format.xml { head :forbidden }
+    end
   end
 
+  def show
+    respond_with(@driver = Driver.find(params[:id]))
+  end
+  
   def create
     @driver = Driver.new(params[:driver])
     if @driver.save
@@ -25,7 +34,7 @@ class DriversController < ApplicationController
   end
   
   def destroy
-    @driver = Vehicle.find(params[:id])
+    @driver = Driver.find(params[:id])
     @driver.destroy
     
     head :ok

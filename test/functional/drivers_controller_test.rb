@@ -8,16 +8,31 @@ class DriversControllerTest < ActionController::TestCase
   end
   
   for format in ['json', 'xml']
+    context "on get index as #{format}" do
+      setup { get :index, format: format }
+      
+      should respond_with :forbidden
+    end
+
     context "on post create as #{format}" do
-      setup { post :create, format: format, driver: Factory.attributes_for(:driver) }
+      setup { post :create, format: format, driver: FactoryGirl.attributes_for(:driver) }
     
-      should respond_with :succes
+      should respond_with :success
+    end
+  
+    context "on get show as #{format}" do
+      setup do
+        @driver = FactoryGirl.create(:driver)
+        get :show, format: format, id: @driver.id
+      end
+    
+      should respond_with :success
     end
   
     context "on put update as #{format}" do
       setup do
-        @driver = Factory(:driver)
-        put :update, format: format, id: @driver.id, driver: Factory.attributes_for(:driver)
+        @driver = FactoryGirl.create(:driver)
+        put :update, format: format, id: @driver.id, driver: FactoryGirl.attributes_for(:driver)
       end
     
       should respond_with :success
@@ -25,7 +40,7 @@ class DriversControllerTest < ActionController::TestCase
   
     context "on delete destroy" do
       setup do
-        @driver = Factory(:driver)
+        @driver = FactoryGirl.create(:driver)
         delete :destroy, format: format, id: @driver.id
       end
     

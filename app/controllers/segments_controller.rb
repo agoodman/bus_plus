@@ -1,3 +1,0 @@
-class SegmentsController < ApplicationController
-
-end
