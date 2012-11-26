@@ -8,24 +8,39 @@ class PassengersControllerTest < ActionController::TestCase
   end
   
   for format in ['json', 'xml']
-    context "on post create as #{format}" do
-      setup { post :create, format: format, passenger: { :latitude => 0.0, :longitude => 0.0 } }
+    context "on get index as #{format}" do
+      setup { get :index, format: format }
+      
+      should respond_with :forbidden
+    end
     
-      should respond_with :succes
+    context "on post create as #{format}" do
+      setup { post :create, format: format, passenger: FactoryGirl.attributes_for(:passenger) }
+    
+      should respond_with :created
     end
   
-    context "on put update as #{format}" do
+    context "on get show as #{format}" do
       setup do
-        @passenger = Passenger.create({ latitude: 0.0, longitude: 0.0 })
-        put :update, format: format, id: @passenger.id, passenger: { latitude: 0.0, longitude: 0.0 }
+        @passenger = FactoryGirl.create(:passenger)
+        get :show, format: format, id: @passenger.id
       end
     
       should respond_with :success
     end
   
+    context "on put update as #{format}" do
+      setup do
+        @passenger = FactoryGirl.create(:passenger)
+        put :update, format: format, id: @passenger.id, passenger: {}
+      end
+    
+      should respond_with :forbidden
+    end
+  
     context "on delete destroy" do
       setup do
-        @passenger = Passenger.create({ latitude: 0.0, longitude: 0.0 })
+        @passenger = FactoryGirl.create(:passenger)
         delete :destroy, format: format, id: @passenger.id
       end
     
