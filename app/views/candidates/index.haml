@@ -1,0 +1,21 @@
+%h1 candidates
+%ul.fields
+	%li passenger_id
+	%li vehicle_id
+	%li bid
+	%li assigned_at
+%ul.api
+	%li 
+		%span POST /candidates
+		%p.response HTTP 403 Forbidden
+	%li 
+		%span GET /candidates/:id
+		%hr
+		%p.response {"candidate":{"id":123, "passenger_id":1, "vehicle_id":1, "bid": nil, "assigned_at": nil}}
+	%li 
+		%span PUT /candidates/:id
+		%p.request {"candidate":{"bid":123.0}}
+		%p.response HTTP 200 OK
+	%li 
+		%span DELETE /candidates/:id
+		%p.response HTTP 403 Forbidden
