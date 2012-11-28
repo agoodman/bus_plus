@@ -7,7 +7,7 @@ class Vehicle < ActiveRecord::Base
   validates_presence_of :latitude, :longitude
   validates_numericality_of :latitude, :longitude
 
-  attr_accessible :latitude, :longitude, :driver_id, :seats_available
+  attr_accessible :latitude, :longitude, :driver_id, :seats_available, :on_duty
   
   scope :with_vacancy, where('seats_available > 0')
   
