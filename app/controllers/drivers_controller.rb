@@ -16,21 +16,15 @@ class DriversController < ApplicationController
   
   def create
     @driver = Driver.new(params[:driver])
-    if @driver.save
-      respond_with(@driver, status: :ok)
-    else
-      respond_with({errors: @driver.errors.full_messages})
-    end
+    @driver.save
+    respond_with(@driver)
   end
   
   def update
     @driver = Driver.find(params[:id])
     
-    if @driver.update_attributes(params[:driver])
-      respond_with(@driver, status: :ok)
-    else
-      respond_with({errors: @driver.errors.full_messages})
-    end
+    @driver.update_attributes(params[:driver])
+    respond_with(@driver)
   end
   
   def destroy
