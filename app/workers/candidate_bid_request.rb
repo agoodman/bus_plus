@@ -16,6 +16,7 @@ class CandidateBidRequest
     payload = { candidate_id: candidate_id }
     notification = Grocer::Notification.new(
       device_token: candidate.vehicle.token,
+      badge: '1',
       custom: payload
     )
     

@@ -17,6 +17,7 @@ class CandidateAssignment
     payload = { vehicle_id: vehicle.id }
     notification = Grocer::Notification.new(
       device_token: passenger.token,
+      badge: '1',
       custom: payload
     )
 
@@ -32,6 +33,7 @@ class CandidateAssignment
     payload = { passenger_id: passenger.id }
     notification = Grocer::Notification.new(
       device_token: vehicle.token,
+      badge: '1',
       custom: payload
     )
 
