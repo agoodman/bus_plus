@@ -7,9 +7,10 @@ class CandidateSearch
       puts "no nearby vehicles found for passenger #{passenger_id}"
     else
       for vehicle in nearby_vehicles
+        puts "found candidate vehicle #{vehicle.id}"
         Candidate.create(passenger_id: passenger_id, vehicle_id: vehicle.id)
       end
-      CandidateSelect.delay.select(passenger_id)
+      CandidateSelect.delay(run_at: 5.seconds.from_now).select(passenger_id)
     end
   end
   
