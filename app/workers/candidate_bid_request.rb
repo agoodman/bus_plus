@@ -12,7 +12,7 @@ class CandidateBidRequest
       gateway: "gateway.sandbox.push.apple.com"
     )
       
-    payload = { candidate_id: candidate_id }
+    payload = { candidate_id: candidate.id }
     notification = Grocer::Notification.new(
       device_token: candidate.vehicle.token,
       custom: payload
