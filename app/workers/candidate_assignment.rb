@@ -24,7 +24,7 @@ class CandidateAssignment
     pusher.push(notification)
   end
   
-  def send_vehicle_assignment_notification(passenger,vehicle)
+  def self.send_vehicle_assignment_notification(passenger,vehicle)
     pusher = Grocer.pusher(
       certificate: "config/apns/driver-development.pem",
       gateway: "gateway.sandbox.push.apple.com"
