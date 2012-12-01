@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'rake', '0.8.7'
 gem 'rails', '3.0.3'
 
 # Bundle edge Rails instead:
@@ -11,6 +12,7 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'rest-client'
 gem 'delayed_job_active_record'
+gem 'grocer'
 
 # Use unicorn as the web server
 # gem 'unicorn'
