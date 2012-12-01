@@ -3,10 +3,10 @@ class Passenger < ActiveRecord::Base
   has_many :candidates, dependent: :destroy
   belongs_to :vehicle
   
-  validates_presence_of :start_latitude, :start_longitude, :end_latitude, :end_longitude
+  validates_presence_of :start_latitude, :start_longitude, :end_latitude, :end_longitude, :token
   validates_numericality_of :start_latitude, :start_longitude, :end_latitude, :end_longitude
 
-  attr_accessible :start_latitude, :start_longitude, :end_latitude, :end_longitude, :position
+  attr_accessible :start_latitude, :start_longitude, :end_latitude, :end_longitude, :position, :token
   
   after_create :find_candidates
   before_destroy :release_from_vehicle

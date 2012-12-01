@@ -4,10 +4,10 @@ class Vehicle < ActiveRecord::Base
   has_many :passengers, order: 'position asc'
   has_many :candidates, dependent: :destroy
   
-  validates_presence_of :latitude, :longitude
+  validates_presence_of :latitude, :longitude, :token
   validates_numericality_of :latitude, :longitude
 
-  attr_accessible :latitude, :longitude, :driver_id, :seats_available, :on_duty
+  attr_accessible :latitude, :longitude, :driver_id, :seats_available, :on_duty, :token
   
   scope :with_vacancy, where('seats_available > 0')
   
