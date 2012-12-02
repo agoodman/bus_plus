@@ -1,6 +1,6 @@
 class Driver < ActiveRecord::Base
 
-  has_one :vehicle
+  has_one :vehicle, dependent: :destroy
 
   attr_accessible :email, :license_number
   
