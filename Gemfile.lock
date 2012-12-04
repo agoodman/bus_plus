@@ -63,7 +63,7 @@ GEM
     mime-types (1.19)
     mocha (0.10.5)
       metaclass (~> 0.0.1)
-    mysql2 (0.3.11)
+    pg (0.14.1)
     polyglot (0.3.3)
     rack (1.2.5)
     rack-mount (0.6.14)
@@ -115,7 +115,7 @@ DEPENDENCIES
   grocer
   haml
   jquery-rails
-  mysql2
+  pg
   rails (= 3.0.3)
   rake (= 0.8.7)
   rest-client
