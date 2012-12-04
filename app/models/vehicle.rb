@@ -9,6 +9,7 @@ class Vehicle < ActiveRecord::Base
 
   attr_accessible :latitude, :longitude, :driver_id, :seats_available, :on_duty, :token
   
+  scope :on_duty, where(on_duty: true)
   scope :with_vacancy, where('seats_available > 0')
   
   def waypoints
