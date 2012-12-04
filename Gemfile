@@ -2,17 +2,27 @@ source 'http://rubygems.org'
 
 gem 'rake', '0.8.7'
 gem 'rails', '3.0.3'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'shoulda'
 gem 'haml'
 gem 'jquery-rails'
 gem 'rest-client'
 gem 'delayed_job_active_record'
 gem 'grocer'
+
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+group :production do
+  gem 'thin'
+  gem 'mysql2'
+end
+
+group :development do
+  gem 'sqlite3-ruby', :require => 'sqlite3'
+end
+
+group :test do
+  gem 'shoulda'
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'
