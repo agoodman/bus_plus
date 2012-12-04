@@ -2,7 +2,7 @@ class CandidateSearch
   
   def self.search(passenger_id)
     passenger = Passenger.find(passenger_id)
-    nearby_vehicles = Vehicle.with_vacancy.near(passenger.start_latitude, passenger.start_longitude).limit(20)
+    nearby_vehicles = Vehicle.on_duty.with_vacancy.near(passenger.start_latitude, passenger.start_longitude).limit(20)
     if nearby_vehicles.empty?
       puts "no nearby vehicles found for passenger #{passenger_id}"
     else
