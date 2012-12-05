@@ -2,7 +2,7 @@
 %html
 	%head
 		%title 
-			BusPlus
+			bus+
 			= "- #{yield(:title)}" unless yield(:title).blank?
 		= stylesheet_link_tag :all
 		%link{:rel => "stylesheet", :href => "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/trontastic/jquery-ui.css", :type => "text/css"}
@@ -10,7 +10,7 @@
 		= csrf_meta_tag
 	%body
 		%header
-			%p#logo BUS PLUS
+			%p#logo bus+
 			%p#tagline 
 				Scalable
 				%br
@@ -19,10 +19,10 @@
 				Transportation
 			%nav
 				%ul
-					%li{class: (controller.controller_name=='home' ? 'current' : '')}= link_to 'overview', root_path
-					%li{class: (controller.controller_name=='drivers' ? 'current' : '')}= link_to 'drivers', drivers_path
-					%li{class: (controller.controller_name=='vehicles' ? 'current' : '')}= link_to 'vehicles', vehicles_path
-					%li{class: (controller.controller_name=='passengers' ? 'current' : '')}= link_to 'passengers', passengers_path
+					%li{class: (controller.action_name=='index' ? 'current' : '')}= link_to 'overview', root_path
+					%li{class: (controller.action_name=='passenger' ? 'current' : '')}= link_to 'passenger', passenger_path
+					%li{class: (controller.action_name=='driver' ? 'current' : '')}= link_to 'driver', driver_path
+					%li= link_to 'developers', api_path, target: '_new'
 		#main= yield
 		%footer
 			Copyright © 2012 Migrant Studios. All Rights Reserved.

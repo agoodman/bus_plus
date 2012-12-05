@@ -4,7 +4,7 @@ class DriversController < ApplicationController
   
   def index
     respond_to do |format|
-      format.html
+      format.html { render layout: 'api' }
       format.json { head :forbidden }
       format.xml { head :forbidden }
     end

@@ -1,127 +1,22 @@
-%h1 API Documentation
-%p Bus Plus is a framework for managing vehicles and passengers for local and regional transportation.
+%h2 Passengers
+%p 
+	Get where you need to go without all the hassles of driving, parking, insurance, tickets, and upkeep.
+	Pay per mile or per minute, whichever is greater.
+	Support local economy by paying professional drivers instead of car loan lenders.
+	Never worry again about having too much to drink at a party.
 
-%h2 
-	Base URL: 
-	%i http://buspl.us/api
+%h2 Drivers
+%p
+	Reduce or even eliminate downtime with our on-demand automated dispatching service.
+	Take on multiple fares at the same time, increasing hourly income.
+	Reduce total fuel cost to transport passengers to their destinations.
+	No need to collect fare. bus+ pays you via automated accounting.
 
-%h2 Use Cases
-%ul.use-cases
-	%li 
-		%strong= link_to 'Drivers', drivers_path
-		provide on-demand transportation service to 
-		%strong= link_to 'passengers', passengers_path
-		using an automated dispatch system.
-	%li
-		%strong= link_to 'Passengers', passengers_path
-		make point-to-point transport requests between pickup (usually their current location) and drop-off using a mobile device.
-	%li
-		%strong Automated workers
-		sort requests and match each passenger to a
-		%strong= link_to 'vehicle', vehicles_path
-		using a matching algorithm.
-		= link_to 'Learn More', match_path
-
-%h2 Request Life Cycle
-%ol.lifecycle
-	%li 
-		User enters trip pickup and drop-off information using their mobile device, creating a
-		%strong= link_to 'passenger', passengers_path
-		object to represent their trip.
-	%li
-		Once a passenger is created, the 
-		%strong= link_to 'viable vehicles', match_path
-		submit bids for the request.
-	%li
-		The dispatcher chooses a vehicle and 
-		%strong= link_to 'notifies', match_path
-		the vehicle and passenger by push notification.
-	%li
-		Vehicle approaches passenger's location, passenger receives alert.
-	%li
-		Vehicle arrives at passenger's location, passenger receives alert.
-	%li
-		Passenger and vehicle move together away from pickup location, passenger's mobile device detects successful pickup. 
-	%li
-		Vehicle may take on additional passengers or drop off others before arriving at passenger's destination
-	%li
-		Vehicle arrives at passenger's destination, passenger disembarks. User's mobile device detects its current location to confirm successful transport and deletes passenger.
-
-- if false
-	#authentication
-		#user
-			%h3 User (CRUD)
-			%ul
-				%li
-					%span POST /users
-					%p.request {"user":{"first_name":"Test", "last_name":"User", "email":"test@buspl.us", "password":"abc123"}}
-					%p.response {"user":{"id":123456, "api_token":"456def", ...}}
-				%li
-					%span GET /users/:id
-					%p.response {"user":{"id":123456, "api_token":"456def", ...}}
-				%li
-					%span PUT /users
-					%p.request {"user":{"first_name":"Test", "last_name":"User"}}
-					%p.response HTTP 200 OK
-				%li
-					%span DELETE /users/:id
-					%p.response HTTP 200 OK
-				
-		#session
-			%h3 Session (C..D)
-			%ul
-				%li 
-					%span POST /sessions
-					%p.request {"session":{"email":"your_email", "password":"your_password"}}
-					%p.response {"session":{"api_token":"abc123"}}
-				%li 
-					%span DELETE /session
-					%p.response HTTP 200 OK
-		#token
-			%h3 Token (HTTPS Basic Auth)
-			%p Once you have a token, you can access any endpoint by submitting the token as the HTTPS basic authentication username. The password is ignored.
-
-		#endpoints
-			#passengers
-				%h3 Passengers (C.UD)
-				%ul
-					%li 
-						%span POST /passengers
-						%p.request {"passenger":{"latitude":26.0, "longitude":-82.0}}
-						%p.response {"passenger":{"id":123, "latitude":26.0, "longitude":-82.0}}
-					%li 
-						%span PUT /passengers/:id
-						%p.request {"passenger":{"latitude":26.5, "longitude":-82.5}}
-						%p.response HTTP 200 OK
-					%li 
-						%span DELETE /passengers/:id
-						%p.response HTTP 200 OK
-			#destinations
-				%h3 Destinations (C..D)
-				%ul
-					%li 
-						%span POST /passengers/:passenger_id/destinations
-						%p.request {"destination":{"latitude":25.6, "longitude":-82.3}}
-						%p.response HTTP 200 OK
-					%li 
-						%span DELETE /passengers/:passenger_id/destinations/:id
-						%p.response HTTP 200 OK
-			#vehicles
-				%h3 Vehicles (CRUD)
-				%ul
-					%li 
-						%span POST /vehicles
-						%p.request {"vehicle":{"driver_id":123, "latitude":23.8, "longitude":-81.7}}
-						%p.response {"vehicle":{"id":456, "driver_id":123, "latitude":23.8, "longitude":-81.7}}
-					%li 
-						%span GET /vehicles
-						%p.response [{"vehicle":{"id":456, "driver_id":123, "latitude":23.8, "longitude":-81.7}}]
-					%li 
-						%span PUT /vehicles/:id 
-						%p.request {"vehicle":{"latitude":23.9, "longitude":-81.4}}
-						%p.response HTTP 200 OK
-					%li 
-						%span DELETE /vehicles/:id
-						%p.response HTTP 200 OK
-			%hr
-		#workers
+%h2 Developers
+%p 
+	bus+ is an open standard, 
+	= link_to 'hosted on github.', 'https://github.com/agoodman/bus_plus'
+	Contribute to the project by forking the repo and sending a pull request.
+	Or, use our
+	= link_to ' RESTful web service API', api_path
+	to tie your system into ours.
