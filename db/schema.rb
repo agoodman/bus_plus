@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121201203422) do
+ActiveRecord::Schema.define(:version => 20121209230542) do
 
   create_table "candidates", :force => true do |t|
     t.integer   "vehicle_id"
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(:version => 20121201203422) do
     t.string    "email"
   end
 
+  create_table "manifests", :force => true do |t|
+    t.integer   "vehicle_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+  end
+
+  create_table "manifests_path_elements", :id => false, :force => true do |t|
+    t.integer "manifest_id"
+    t.integer "path_element_id"
+  end
+
   create_table "passengers", :force => true do |t|
     t.float     "start_latitude"
     t.float     "start_longitude"
@@ -57,6 +68,20 @@ ActiveRecord::Schema.define(:version => 20121201203422) do
     t.integer   "position"
     t.timestamp "assigned_at"
     t.string    "token"
+    t.datetime  "pickup_at"
+    t.datetime  "dropoff_at"
+  end
+
+  create_table "path_elements", :force => true do |t|
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "passenger_id"
+    t.float     "start_latitude"
+    t.float     "start_longitude"
+    t.timestamp "start_time"
+    t.float     "end_latitude"
+    t.float     "end_longitude"
+    t.timestamp "end_time"
   end
 
   create_table "vehicles", :force => true do |t|
@@ -68,6 +93,15 @@ ActiveRecord::Schema.define(:version => 20121201203422) do
     t.integer   "driver_id"
     t.boolean   "on_duty"
     t.string    "token"
+  end
+
+  create_table "waypoints", :force => true do |t|
+    t.float     "latitude"
+    t.float     "longitude"
+    t.timestamp "arrival_time"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "manifest_id"
   end
 
 end
