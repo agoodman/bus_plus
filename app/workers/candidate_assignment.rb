@@ -33,7 +33,7 @@ class CandidateAssignment
     payload = { passenger_id: passenger.id }
     notification = Grocer::Notification.new(
       device_token: vehicle.token,
-      badge: '1',
+      alert: 'You have been assigned a new passenger.',
       custom: payload
     )
 
