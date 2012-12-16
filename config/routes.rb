@@ -7,7 +7,11 @@ BusPlus::Application.routes.draw do
   
   scope '/api' do
     resources :drivers
-    resources :vehicles
+    resources :vehicles do
+      collection do
+        get :near
+      end
+    end
     resources :passengers
     resources :candidates
     match '/:anything' => 'api/base#error', conditions: { anything: /.*/ }

@@ -10,6 +10,14 @@ class VehiclesController < ApplicationController
     end
   end
 
+  def near
+    @vehicles = Vehicle.near(params[:latitude].to_f,params[:longitude].to_f)
+    respond_to do |format|
+      format.json { render json: @vehicles.count, status: :ok }
+      format.xml {  render xml: @vehicles.count, status: :ok }
+    end
+  end
+  
   def create
     @vehicle = Vehicle.new(params[:vehicle])
     @vehicle.save
