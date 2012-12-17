@@ -1,6 +1,8 @@
 class PassengerReject
 
   def self.reject(passenger_token)
+    puts "send APNs rejection to passenger"
+    
     pusher = Grocer.pusher(
       certificate: "config/apns/passenger-development.pem",
       gateway: "gateway.sandbox.push.apple.com"
