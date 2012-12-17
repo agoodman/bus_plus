@@ -26,6 +26,8 @@ nav { zoom: 1; margin-top: 25px; }
 nav li { float: left; }
 
 #main { font-family: Helvetica Neue; }
+h3 > div { background: #123456; padding: 20px; color: #fedcba; }
+h3 > div input[type='submit'] { font-family: Helvetica Neue; font-variant: small-caps; }
 ul.use-cases { list-style: disc; margin-left: 20px; }
 ul.use-cases li { margin-top: 10px; }
 #main ol { margin-left: 40px; }
@@ -83,6 +85,8 @@ p.response:before { content: 'RESPONSE '; font-size: 8pt; }
 	
 /* landscape HD */
 @media screen and (min-aspect-ratio: 16/9) {
+
+	#main { margin-left: 220px; }
 
 }
 

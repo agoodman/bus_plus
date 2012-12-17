@@ -1,0 +1,76 @@
+<!-- <style type="text/css">
+span.label,span.spacer,span.multiple span {width:120px;float:left;} 
+span.multiple {float:left;} 
+span.button {padding-left:120px;} 
+div.clear {clear:both;padding-top:5px;} 
+</style>  -->
+
+<form action="http://busplus.createsend.com/t/t/s/<%= code %>/" method="post" id="subForm">
+<div>
+  <span class="label"><label for="name">Name:</label></span>
+  <span><input type="text" name="cm-name" id="name" size="25" /></span>
+</div>
+<div>
+<span class="label"><label for="<%= code %>-<%= code %>">Email Address:</label></span>
+<span><input type="text" name="cm-<%= code %>-<%= code %>" id="<%= code %>-<%= code %>" size="25" /></span>
+</div>
+<div>
+	<label for="City">City:</label><br /><input type="text" name="cm-f-<%= city %>" id="City" /><br />
+	<label for="State">State:</label><br /><select name="cm-fo-<%= state %>">
+	<option value="20230">Alabama</option>
+	<option value="20231">Alaska</option>
+	<option value="20232">Arizona</option>
+	<option value="20233">Arkansas</option>
+	<option value="20234">California</option>
+	<option value="20235">Colorado</option>
+	<option value="20236">Connecticut</option>
+	<option value="20237">Delaware</option>
+	<option value="20238">District of Columbia</option>
+	<option value="20239">Florida</option>
+	<option value="20240">Georgia</option>
+	<option value="20241">Hawaii</option>
+	<option value="20242">Idaho</option>
+	<option value="20243">Illinois</option>
+	<option value="20244">Indiana</option>
+	<option value="20245">Iowa</option>
+	<option value="20246">Kansas</option>
+	<option value="20247">Kentucky</option>
+	<option value="20248">Louisiana</option>
+	<option value="20249">Maine</option>
+	<option value="20250">Maryland</option>
+	<option value="20251">Massachusetts</option>
+	<option value="20252">Michigan</option>
+	<option value="20253">Minnesota</option>
+	<option value="20254">Mississippi</option>
+	<option value="20255">Missouri</option>
+	<option value="20256">Montana</option>
+	<option value="20257">Nebraska</option>
+	<option value="20258">Nevada</option>
+	<option value="20259">New Hampshire</option>
+	<option value="20260">New Jersey</option>
+	<option value="20261">New Mexico</option>
+	<option value="20262">New York</option>
+	<option value="20263">North Carolina</option>
+	<option value="20264">North Dakota</option>
+	<option value="20265">Ohio</option>
+	<option value="20266">Oklahoma</option>
+	<option value="20267">Oregon</option>
+	<option value="20268">Pennsylvania</option>
+	<option value="20269">Rhode Island</option>
+	<option value="20270">South Carolina</option>
+	<option value="20271">South Dakota</option>
+	<option value="20272">Tennessee</option>
+	<option value="20273">Texas</option>
+	<option value="20274">Utah</option>
+	<option value="20275">Vermont</option>
+	<option value="20276">Virginia</option>
+	<option value="20277">Washington</option>
+	<option value="20278">West Virginia</option>
+	<option value="20279">Wisconsin</option>
+	<option value="20280">Wyoming</option>
+	</select><br />
+</div>
+<div>
+<span class="button"><input type="submit" value="Subscribe" /></span>
+</div>
+</form>

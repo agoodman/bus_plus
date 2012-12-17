@@ -3,14 +3,26 @@
 	Get where you need to go without all the hassles of driving, parking, insurance, tickets, and upkeep.
 	Pay per mile or per minute, whichever is greater.
 	Support local economy by paying professional drivers instead of car loan lenders.
-	Never worry again about having too much to drink at a party.
+	Never worry again about having too much to drink at a party or being too tired to make it home.
+%h3
+	= link_to_function 'Get Involved', "$('#passenger').show()"	
+	#passenger{style: 'display:none'}
+		%p Get early access to the passenger app:
+		= render partial: 'campaign_monitor', locals: { code: 'tthid', city: 'ulhr', state: 'ulhy' }
+		= link_to_function 'Cancel', "$('#passenger').hide()"
 
 %h2 Drivers
 %p
 	Reduce or even eliminate downtime with our on-demand automated dispatching service.
 	Take on multiple fares at the same time, increasing hourly income.
 	Reduce total fuel cost to transport passengers to their destinations.
-	No need to collect fare. bus+ pays you via automated accounting.
+	No need to collect fare. bus+ charges passenger and pays you all via automated accounting.
+%h3
+	= link_to_function 'Get Involved', "$('#driver').show()"	
+	#driver{style: 'display:none'}
+		%p Share your commute or give someone a ride and make a little money:
+		= render partial: 'campaign_monitor', locals: { code: 'tthdu', city: 'uldu', state: 'ulhl' }
+		= link_to_function 'Cancel', "$('#driver').hide()"
 
 %h2 Developers
 %p 
