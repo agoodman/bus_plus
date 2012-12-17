@@ -14,7 +14,8 @@ class VehicleTest < ActiveSupport::TestCase
 
   context "a vehicle with one seat available on decrement" do
     setup do
-      @vehicle = FactoryGirl.create(:vehicle, seats_available: 1)
+      @driver = FactoryGirl.create(:driver)
+      @vehicle = FactoryGirl.create(:vehicle, seats_available: 1, driver: @driver)
       @vehicle.decrement_seat_count!
     end
     should "have no seats available" do
@@ -24,7 +25,8 @@ class VehicleTest < ActiveSupport::TestCase
   
   context "a vehicle with no seats available on increment" do
     setup do
-      @vehicle = FactoryGirl.create(:vehicle, seats_available: 0)
+      @driver = FactoryGirl.create(:driver)
+      @vehicle = FactoryGirl.create(:vehicle, seats_available: 0, driver: @driver)
       @vehicle.increment_seat_count!
     end
     should "have one seat available" do

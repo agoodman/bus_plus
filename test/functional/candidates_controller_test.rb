@@ -23,7 +23,8 @@ class CandidatesControllerTest < ActionController::TestCase
     context "on get show as #{format}" do
       setup do
         @passenger = FactoryGirl.create(:passenger)
-        @vehicle = FactoryGirl.create(:vehicle)
+        @driver = FactoryGirl.create(:driver)
+        @vehicle = FactoryGirl.create(:vehicle, driver: @driver)
         @candidate = Candidate.create(passenger_id: @passenger.id, vehicle_id: @vehicle.id)
         get :show, format: format, id: @candidate.id
       end
@@ -34,7 +35,8 @@ class CandidatesControllerTest < ActionController::TestCase
     context "on put update as #{format}" do
       setup do
         @passenger = FactoryGirl.create(:passenger)
-        @vehicle = FactoryGirl.create(:vehicle)
+        @driver = FactoryGirl.create(:driver)
+        @vehicle = FactoryGirl.create(:vehicle, driver: @driver)
         @candidate = Candidate.create(passenger_id: @passenger.id, vehicle_id: @vehicle.id)
         put :update, format: format, id: @candidate.id, candidate: { bid: 100.0 }
       end

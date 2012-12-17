@@ -17,7 +17,7 @@ class DriversControllerTest < ActionController::TestCase
     context "on post create as #{format}" do
       setup { post :create, format: format, driver: FactoryGirl.attributes_for(:driver) }
     
-      should respond_with :success
+      should respond_with :created
     end
   
     context "on get show as #{format}" do
