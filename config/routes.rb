@@ -5,6 +5,9 @@ BusPlus::Application.routes.draw do
   resources :passengers, only: :index
   resources :candidates, only: :index
   
+  match "/api/match" => "api#match", via: :get, as: 'match'
+  match "/api" => 'api#index', via: :get, as: 'api'
+
   scope '/api' do
     resources :drivers
     resources :vehicles do
@@ -17,8 +20,6 @@ BusPlus::Application.routes.draw do
     match '/:anything' => 'api/base#error', conditions: { anything: /.*/ }
   end
 
-  match "/api/match" => "api#match", via: :get, as: 'match'
-  match "/api" => 'api#index', via: :get, as: 'api'
   match "/passenger" => 'home#passenger', via: :get, as: 'passenger'
   match "/driver" => 'home#driver', via: :get, as: 'driver'
   root to: "home#index"
