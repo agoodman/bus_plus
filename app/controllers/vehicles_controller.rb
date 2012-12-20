@@ -25,7 +25,7 @@ class VehiclesController < ApplicationController
   end
   
   def show
-    respond_with(@vehicle = Vehicle.find(params[:id]))
+    respond_with(@vehicle = Vehicle.includes(:passengers).find(params[:id]), include: { passengers: { except: :token } })
   end
   
   def update
